@@ -67,14 +67,14 @@ def addAddress():
 @user_api.route('/getAddresses', methods=['POST'])
 def getAddresses():
     try:
-        form=request.get_json()
-        uuid=form['uuid']
+        payload = request.get_json()
+        uuid = payload['uuid']
         # result=Address.query.filter_by(uuid=uuid).all()
-        query = "select address,landmark,save_as from address where uuid = " + uuid
+        query = "select address,landmark,save_as from address where uuid = '" + str(uuid) + "'"
         result=raw_select(query)
         if result is not None:
             # result=query_list_to_dict(result)
-            return success('Done',result)
-        return failure('No Address')
+            return success('Success',result)
+        return failure('No Address found for this user.')
     except Exception as err:
         return failure('Not a valid request')
