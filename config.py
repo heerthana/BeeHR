@@ -6,7 +6,7 @@ JWT_ALGORITHM = "HS256"
 JWT_TOKEN_TIME_OUT_IN_MINUTES = 600
 
 EMAIL = 'darsanameenakshi.1605014@srec.ac.in'
-PASSWORD = 'anasrad14'
+PASSWORD = ''
 APP_BASE_URL = 'http://localhost:5000'
 
 ENABLE_AUTH = False
