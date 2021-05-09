@@ -13,9 +13,9 @@ def create_organization():
     try:
         payload = request.get_json()
         org = Organization(name=payload['name'], display_name=payload['display_name'],
-                           efault_password=payload['default_password'],
+                           default_password=payload['default_password'],
                            address=payload['address'], state=payload['state'], city=payload['city'],
-                           pincode=payload['pincode'], email=payload['email'])
+                           pincode=payload['pincode'], email=payload['email'], company_code=payload['company_code'])
         res = add_item(org)
         if res is None:
             return failure("Oops, Something went wrong.")
