@@ -45,17 +45,17 @@ def attach_middleware(app):
 
 
 def register_blueprints(app):
-    from api.employee.views import emp_api
-    from api.organization.views import org_api
-
-    if BASE_URL_PREFIX:
-        app.register_blueprint(emp_api, url_prefix=BASE_URL_PREFIX)
-        app.register_blueprint(org_api, url_prefix=BASE_URL_PREFIX)
-        app.register_blueprint(auth_api_v1, url_prefix=BASE_URL_PREFIX)
-    else:
-        app.register_blueprint(emp_api)
-        app.register_blueprint(org_api)
-        app.register_blueprint(auth_api_v1)
+    # from api.employee.views import emp_api
+    # from api.organization.views import org_api
+    #
+    # if BASE_URL_PREFIX:
+    #     app.register_blueprint(emp_api, url_prefix=BASE_URL_PREFIX)
+    #     app.register_blueprint(org_api, url_prefix=BASE_URL_PREFIX)
+    #     app.register_blueprint(auth_api_v1, url_prefix=BASE_URL_PREFIX)
+    # else:
+    #     app.register_blueprint(emp_api)
+    #     app.register_blueprint(org_api)
+    #     app.register_blueprint(auth_api_v1)
 
     # Listing all API endpoints
     print(app.url_map)
