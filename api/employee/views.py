@@ -10,17 +10,23 @@ from common.response import success, failure
 from flask import request
 
 from api.employee.models import User
+from xlsxwriter import workbook
 
 emp_api = Blueprint('emp', __name__, url_postfix='emp')
 @emp_api.route('/addemp', methods=['POST'])
 def add_user():
     try:
+        import os
+        import openpyxl
         payload=request.files['file']
         filename=request.files['file'].filename
-        company_code=request.headers['company_code']
-        book = xlrd.open_workbook(filename)
+        wb = openpyxl.Workbook()
+        file_path = 'home/divum/learning_project/file'
+        name=wb.save(os.path.join(file_path,filename))
+        book = xlrd.open_workbook(name)
         sheet = book.sheet_by_index(0)
         count = 0
+        company_code = request.headers['company_code']
         for rx in range(0, sheet.nrows):
             if count > 0:
                 if sheet.row(rx)[0].value != "":
