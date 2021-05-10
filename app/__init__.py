@@ -16,7 +16,6 @@ BASE_URL_PREFIX = ''
 def create_app(config_name):
     app = Flask(__name__, instance_relative_config=True)
     app.config.from_object(app_config[config_name])
-
     ''' App initialisation '''
     db.init_app(app)
 

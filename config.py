@@ -23,7 +23,7 @@ class Config(object):
 
 class DevelopmentConfig(Config):
     # pymysql - for pip install pymysql || mysql-python not needed
-    SQLALCHEMY_DATABASE_URI = 'postgres://postgres:iphone21@127.0.0.1:5432/bee_hr'
+    SQLALCHEMY_DATABASE_URI = 'postgresql://postgres:iphone21@127.0.0.1:5432/beehr'
     SECRET_KEY = 'Your_secret_string_dev'
     SQLALCHEMY_ECHO = True
     DEVELOPMENT = True
