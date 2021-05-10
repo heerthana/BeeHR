@@ -7,7 +7,8 @@ class Employee(BaseModel):
     __tablename__ = 'employee'
     emp_id = Column(String(20))
     password = Column(String(40))
-    company_id = Column(String(10))
+    pwd_change=Column(String(5))
+    company_code = Column(String(10))
     first_name = Column(String(20))
     last_name = Column(String(20))
     role = Column(String(30))
