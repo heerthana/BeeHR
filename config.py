@@ -5,6 +5,10 @@ SECRET_KEY = "BSVIiuYZcTAzHRe07NzEgYqveb6mFkdj"
 JWT_ALGORITHM = "HS256"
 JWT_TOKEN_TIME_OUT_IN_MINUTES = 600
 
+EMAIL = 'darsanameenakshi.1605014@srec.ac.in'
+PASSWORD = ''
+APP_BASE_URL = 'http://localhost:5000'
+
 ENABLE_AUTH = False
 
 
@@ -19,7 +23,7 @@ class Config(object):
 
 class DevelopmentConfig(Config):
     # pymysql - for pip install pymysql || mysql-python not needed
-    SQLALCHEMY_DATABASE_URI = 'postgres://postgres:iphone21@127.0.0.1:5432/beehr'
+    SQLALCHEMY_DATABASE_URI = 'postgres://postgres:iphone21@127.0.0.1:5432/bee_hr'
     SECRET_KEY = 'Your_secret_string_dev'
     SQLALCHEMY_ECHO = True
     DEVELOPMENT = True

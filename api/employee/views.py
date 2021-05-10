@@ -1,19 +1,20 @@
 import xlrd
-from app import db
-from common.blueprint import Blueprint
-from common.utils.json_utils import query_list_to_dict
-from common.utils.number_utils import random_n_digit
-from api.organization.models import Organization
-from common import strings
-from common.connection import add_item, update_item, raw_select
-from common.response import success, failure
 from flask import request
 
+<<<<<<< HEAD
 from api.employee.models import User
 from xlsxwriter import workbook
+=======
+from api.employee.models import Employee
+from common.blueprint import Blueprint
+from common.connection import add_item
+from common.response import success, failure
+>>>>>>> 3abaa36a8970ccba5812770932285f8ad4d26198
 
 emp_api = Blueprint('emp', __name__, url_postfix='emp')
-@emp_api.route('/addemp', methods=['POST'])
+
+
+@emp_api.route('/addEmp', methods=['POST'])
 def add_user():
     try:
         import os
@@ -41,13 +42,11 @@ def add_user():
                     contract = str(sheet.row(rx)[8].value)
                     phone_no = str(sheet.row(rx)[9].value)
                     status = str(sheet.row(rx)[10].value)
-                    employee=User(emp_id=emp_id,first_name=first_name,last_name=last_name,role=role,
-                                  team=team,domain=domain,detail_designation=detail_designation,type=type,
-                                  contract=contract,phone_no=phone_no,status =status,company_id=company_code)
+                    employee = Employee(emp_id=emp_id, first_name=first_name, last_name=last_name, role=role,
+                                        team=team, domain=domain, detail_designation=detail_designation, type=type,
+                                        contract=contract, phone_no=phone_no, status=status, company_id=company_code)
                     if not add_item(employee):
                         return failure("provide valid employee details")
         return success("employee details added successfully")
     except Exception as err:
         return failure(str(err))
-
-

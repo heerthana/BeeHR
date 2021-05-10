@@ -7,5 +7,11 @@ app = create_app(config_name)
 register_blueprints(app)
 attach_middleware(app)
 
+
+@app.route('/')
+def home():
+    return 'SUCCESS'
+
+
 if __name__ == '__main__':
     app.run(port=5000)
