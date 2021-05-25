@@ -82,5 +82,12 @@ def employee_login():
         return failure(str(err))
 
 
-
-
+@emp_api.route('/data', methods=['GET'])
+def data():
+    try:
+        first_name = request.args.get('first_name') if 'first_name' in request.args else ""
+        last_name = request.args.get('last_name') if 'last_name' in request.args else ""
+        resp = {'first_name': first_name, "last_name": last_name}
+        return success(message='Successfully retrieved', content=resp)
+    except Exception as err:
+        return failure(str(err))
